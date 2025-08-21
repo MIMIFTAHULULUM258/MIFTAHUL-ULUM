@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Papan Profil • MI Miftahul Ulum</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <style>
+      :root {
+        --soft-green: #f8fff8;
+        --cream: #fbf7ef;
+        --green-700: #1f6d42;
+        --green-500: #2e8b57;
+        --gold: #c6a300;
+        --ink: #2b2b2b;
+        --muted: #6d6d6d;
+        --card: #ffffff;
+      }
+
+      html,
+      body {
+        height: 100%;
+        background: var(--soft-green);
+        color: var(--ink);
+        margin: 0;
+        font-family: "Poppins", "Open Sans", sans-serif;
+      }
+
+      /* Fixed responsive Back Button */
+      .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 8px 16px;
+        background: var(--green-700);
+        color: #fff;
+        font-weight: 600;
+        border-radius: 8px;
+        border: 2px solid var(--gold);
+        text-decoration: none;
+        z-index: 1000;
+        transition: 0.3s;
+      }
+      .back-btn:hover {
+        background: var(--green-500);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      @media (max-width: 576px) {
+        .back-btn {
+          top: 10px;
+          left: 10px;
+          padding: 6px 12px;
+          font-size: 0.9rem;
+        }
+      }
+
+      .btn-theme {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 16px;
+        border-radius: 8px;
+        border: none;
+        background: var(--green-700);
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+      .btn-theme:hover {
+        background: var(--green-500);
+        transform: translateY(-2px);
+      }
+
+      /* To top button (fixed kanan bawah) */
+      .to-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: block;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 999;
+      }
+
+      .papan {
+        max-width: 900px;
+        margin: 10px auto 30px;
+        border: 6px solid var(--green-700);
+        border-radius: 12px;
+        background: var(--cream);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        padding: 28px;
+        position: relative;
+      }
+      .papan::before {
+        content: "";
+        position: absolute;
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
+        border: 4px solid var(--gold);
+        border-radius: 16px;
+      }
+
+      .logo {
+        display: block;
+        margin: 0 auto 10px;
+        max-height: 90px;
+      }
+
+      h1 {
+        font-family: "Merriweather", serif;
+        font-size: 1.8rem;
+        color: var(--green-700);
+        text-align: center;
+        margin: 0 0 6px;
+      }
+      h2 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 0;
+        color: var(--muted);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 28px;
+        background: #fff;
+        border: 2px solid var(--gold);
+      }
+      td {
+        padding: 10px 12px;
+        border: 1px solid #ddd4b0;
+        font-size: 0.95rem;
+      }
+      td.label {
+        width: 30%;
+        font-weight: 600;
+        background: #faf8ef;
+        color: var(--green-700);
+      }
+      td.value strong {
+        color: var(--green-500);
+      }
+
+      footer {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Fixed Back Button -->
+    <a href="../index.html" class="back-btn">← Kembali</a>
+
+    <div class="papan">
+      <img src="../assets/images/Logo.png" alt="Logo Sekolah" class="logo" />
+
+      <h1>PROFIL SEKOLAH</h1>
+      <h2>MI Miftahul Ulum</h2>
+
+      <table>
+        <tr>
+          <td class="label">Nomor Statistik</td>
+          <td class="value">111235070258</td>
+        </tr>
+        <tr>
+          <td class="label">Provinsi</td>
+          <td class="value">Jawa Timur</td>
+        </tr>
+        <tr>
+          <td class="label">Kabupaten/Kota</td>
+          <td class="value">Malang</td>
+        </tr>
+        <tr>
+          <td class="label">Kecamatan</td>
+          <td class="value">Tumpang</td>
+        </tr>
+        <tr>
+          <td class="label">Desa/Kelurahan</td>
+          <td class="value">Ngingit</td>
+        </tr>
+        <tr>
+          <td class="label">Jalan</td>
+          <td class="value">Dukuh Alas Gede</td>
+        </tr>
+        <tr>
+          <td class="label">Kode Pos</td>
+          <td class="value">65156</td>
+        </tr>
+        <tr>
+          <td class="label">Telepon</td>
+          <td class="value">—</td>
+        </tr>
+        <tr>
+          <td class="label">Fax</td>
+          <td class="value">—</td>
+        </tr>
+        <tr>
+          <td class="label">Daerah</td>
+          <td class="value">✔ Pedesaan</td>
+        </tr>
+        <tr>
+          <td class="label">Status Sekolah</td>
+          <td class="value">✔ Swasta</td>
+        </tr>
+        <tr>
+          <td class="label">Akreditasi</td>
+          <td class="value">B — SK No. 761/BAN-SM/SK/2019, 09-09-2019</td>
+        </tr>
+        <tr>
+          <td class="label">Penerbit SK</td>
+          <td class="value">Kemenag Kab. Malang</td>
+        </tr>
+        <tr>
+          <td class="label">Tahun Berdiri</td>
+          <td class="value">1963</td>
+        </tr>
+        <tr>
+          <td class="label">Kegiatan Belajar</td>
+          <td class="value">✔ Pagi</td>
+        </tr>
+        <tr>
+          <td class="label">Bangunan</td>
+          <td class="value">✔ Milik Sendiri</td>
+        </tr>
+        <tr>
+          <td class="label">Lokasi Sekolah</td>
+          <td class="value">Alas Gede Ngingit</td>
+        </tr>
+        <tr>
+          <td class="label">Jarak ke Pusat Kecamatan</td>
+          <td class="value">11 km</td>
+        </tr>
+        <tr>
+          <td class="label">Jarak ke Pusat Kota</td>
+          <td class="value">9.5 km</td>
+        </tr>
+        <tr>
+          <td class="label">Penyelenggara</td>
+          <td class="value">✔ Yayasan</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Tombol To Top -->
+    <button id="toTopBtn" class="btn-theme to-top-btn">⬆ Top</button>
+
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script>
+      // Load header & footer partials
+      Promise.all([
+        fetch("../partials/header.html").then((res) => res.text()),
+        fetch("../partials/footer.html").then((res) => res.text()),
+      ]).then(([headerHtml, footerHtml]) => {
+        if (document.getElementById("header"))
+          document.getElementById("header").innerHTML = headerHtml;
+        if (document.getElementById("footer"))
+          document.getElementById("footer").innerHTML = footerHtml;
+
+        // Load header scroll script
+        const script = document.createElement("script");
+        script.src = "../js/headerScroll.js";
+        document.body.appendChild(script);
+      });
+
+      // To Top Button
+      const toTopBtn = document.getElementById("toTopBtn");
+
+      window.addEventListener("scroll", () => {
+        const scrollPos = window.scrollY + window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+
+        if (scrollPos >= pageHeight - 200) {
+          toTopBtn.style.opacity = "1";
+        } else {
+          toTopBtn.style.opacity = "0";
+        }
+      });
+
+      toTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

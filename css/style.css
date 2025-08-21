@@ -1,0 +1,910 @@
+/* =======================
+   General Styles
+======================= */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom right, #f9fbfd, #ffffff);
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  color: #333; /* keeps text readable */
+}
+
+/* Subtle dotted pattern overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 22px 22px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Merriweather", serif;
+}
+
+/* =======================
+   Fluid Typography
+======================= */
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: clamp(14px, 1vw + 0.5rem, 16px);
+}
+
+/* base scaling for any .section-title */
+.section-title {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+/* =======================
+   Header
+======================= */
+#main-header {
+  background-color: transparent; /* default */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s ease, border-bottom 0.3s ease,
+    padding 0.3s ease, height 0.3s ease;
+}
+
+/* Default text colors */
+#main-header .nav-link,
+#main-header .school-name,
+#main-header .navbar-toggler {
+  color: #ffffff;
+}
+
+.nav-link {
+  font-weight: 500;
+}
+
+/* Transparent state (default large) */
+#main-header.transparent {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+#main-header.transparent .nav-link {
+  color: #ffffff;
+}
+#main-header.transparent .nav-link:hover,
+#main-header.transparent .dropdown-menu a:hover {
+  color: #daa520; /* gold */
+}
+#main-header.transparent .school-name {
+  color: #ffffff;
+}
+#main-header.transparent .school-name:hover {
+  color: #daa520;
+}
+#main-header.transparent .navbar-toggler {
+  color: #ffffff;
+}
+#main-header.transparent .navbar {
+  padding: 1.5rem 0; /* bigger when transparent */
+}
+#main-header.transparent .navbar-brand img {
+  height: 80px !important;
+}
+
+/* Solid state (shrinked) */
+#main-header.solid {
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+#main-header.solid .nav-link {
+  color: #000000;
+}
+#main-header.solid .nav-link:hover,
+#main-header.solid .dropdown-menu a:hover {
+  color: #2e7d32; /* green */
+}
+#main-header.solid .school-name {
+  color: #000000;
+}
+#main-header.solid .school-name:hover {
+  color: #2e7d32;
+}
+#main-header.solid .navbar-toggler {
+  color: #000000;
+}
+#main-header.solid .navbar {
+  padding: 0.5rem 0; /* smaller when solid */
+}
+#main-header.solid .navbar-brand img {
+  height: 60px !important;
+}
+
+/* Logo + Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+}
+@media (max-width: 768px) {
+  .navbar-brand img {
+    height: 60px !important;
+  }
+}
+
+/* =======================
+   Navbar Toggler (Hamburger)
+======================= */
+.navbar-toggler-icon {
+  background-image: none;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  display: inline-block;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: all 0.3s ease;
+}
+.navbar-toggler-icon::before {
+  top: -7px;
+}
+.navbar-toggler-icon::after {
+  top: 7px;
+}
+
+/* =======================
+   Dropdown Menu
+======================= */
+.dropdown-menu {
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  min-width: 200px;
+  transition: background-color 0.3s ease;
+}
+
+/* Background adapts based on header state */
+#main-header.transparent .dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+#main-header.solid .dropdown-menu {
+  background-color: #ffffff;
+}
+
+/* Dropdown link style (dynamic colors) */
+#main-header.transparent .dropdown-menu .dropdown-item {
+  color: #ffffff; /* white when transparent */
+}
+#main-header.transparent .dropdown-menu .dropdown-item:hover {
+  color: #daa520; /* gold text */
+  background-color: rgba(255, 215, 0, 0.1); /* gold tint */
+}
+
+#main-header.solid .dropdown-menu .dropdown-item {
+  color: #000000; /* black when solid */
+}
+#main-header.solid .dropdown-menu .dropdown-item:hover {
+  color: #daa520; /* gold text */
+  background-color: rgba(255, 215, 0, 0.1); /* gold tint */
+}
+
+/* =======================
+   Hero Section
+======================= */
+.hero-section {
+  position: relative;
+  height: 100vh; /* full viewport */
+  background: url("../assets/images/hero1.jpeg") center center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 1.5rem;
+}
+
+.search-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-box input,
+.search-box button {
+  border-radius: 25px;
+}
+
+.search-box input {
+  flex: 1 1 auto;
+  min-width: 200px;
+}
+
+/* =======================
+   Sambutan Kepala Sekolah
+======================= */
+.sambutan-section {
+  background: #f8fff8;
+}
+
+.sambutan-section .section-title {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  color: #2e5339;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.sambutan-section .section-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #2e7d32, #d4af37);
+  border-radius: 2px;
+  margin: 0 auto 2rem;
+}
+
+/* Foto Kepala Sekolah */
+.kepsek-photo-wrapper {
+  display: inline-block;
+  padding: 6px;
+  border: 3px solid #d4af37; /* gold border */
+  border-radius: 50%;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.kepsek-photo {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Nama Kepala Sekolah */
+.kepsek-name {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+/* Teks sambutan */
+#sambutan p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* =======================
+   Responsive — Sambutan
+======================= */
+@media (max-width: 768px) {
+  .kepsek-photo {
+    width: 200px;
+    height: 200px;
+  }
+  .sambutan-section .section-title {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .kepsek-photo {
+    width: 180px;
+    height: 180px;
+  }
+  .sambutan-section .section-title {
+    font-size: 1.7rem;
+  }
+  #sambutan p {
+    font-size: 0.95rem;
+  }
+}
+
+/* =======================
+   Berita Terbaru
+======================= */
+#berita-terbaru {
+  background: #f8fff8; /* light background */
+  padding: 3rem 0;
+}
+
+#berita-terbaru .section-title {
+  text-align: center;
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  color: #2e5339;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  width: 100%; /* ensure centered */
+}
+
+#berita-terbaru .section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #2e7d32, #d4af37); /* green → gold */
+  margin: 0.75rem auto 2rem;
+  border-radius: 2px;
+}
+
+/* News Card */
+.news-card {
+  position: relative;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Gold spill animation */
+.news-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #d4af37;
+  z-index: 0;
+  transition: height 0.6s ease;
+}
+.news-card:hover::before {
+  height: 100%;
+}
+
+.news-card > * {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Badge */
+.news-badge {
+  background-color: #2e5339;
+  color: white;
+  font-weight: 600;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 5px 15px;
+  margin-top: 15px;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Image */
+.news-image {
+  width: 100%;
+  max-height: 220px;
+  margin: 15px auto;
+  display: block;
+  border-radius: 8px;
+  border: 2px solid #d4af37;
+  object-fit: cover;
+}
+
+/* Content */
+.news-content {
+  padding: 0 1rem;
+}
+
+.news-date {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 0;
+  color: #2e5339;
+}
+
+.news-title {
+  font-family: "Merriweather", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 8px;
+  color: #2e5339;
+  line-height: 1.4;
+}
+
+/* Footer button */
+.news-footer {
+  background-color: #2e5339;
+  color: white;
+  font-weight: 600;
+  padding: 10px 0;
+  margin-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+.news-card:hover .news-date,
+.news-card:hover .news-title {
+  color: white;
+}
+
+.news-card:hover .news-footer {
+  background-color: white;
+  color: #2e5339;
+}
+
+.news-card:hover .news-badge {
+  background-color: white;
+  color: #2e5339;
+}
+
+/* =======================
+   Responsive — Berita
+======================= */
+@media (max-width: 992px) {
+  .news-image {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-title {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .news-image {
+    max-height: 160px;
+  }
+  .news-title {
+    font-size: 0.9rem;
+  }
+}
+
+/* =======================
+   Visi & Misi
+======================= */
+#visi-misi {
+  background-color: #f8fff8; /* soft green */
+}
+
+#visi-misi .section-title {
+  font-weight: 700;
+  color: #2e5339;
+  font-size: 2rem;
+}
+
+#visi-misi .school-name {
+  color: #d4af37;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+#visi-misi .school-address {
+  color: #555;
+  font-size: 1rem;
+}
+
+.visi-box {
+  background-color: #2e5339;
+  color: white;
+  border-left: 8px solid #d4af37;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.misi-box {
+  background-color: white;
+  border-left: 8px solid #d4af37;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.misi-list {
+  padding-left: 1.2rem;
+}
+.misi-list li {
+  margin-bottom: 0.8rem;
+  padding-left: 0.3rem;
+}
+.misi-list li::marker {
+  color: #d4af37;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* =======================
+   Prestasi Sekolah
+======================= */
+.prestasi-section {
+  background: #f8fff8;
+}
+
+.prestasi-section .section-title {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  color: #2e5339; /* deep green */
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.prestasi-section .section-subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.6rem;
+}
+
+.prestasi-section .section-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #2e7d32, #d4af37); /* green → gold */
+  border-radius: 2px;
+  margin: 0 auto 2.2rem;
+}
+
+/* Cards */
+.prestasi-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 6px solid #d4af37; /* gold accent */
+}
+
+.prestasi-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.prestasi-img {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+}
+
+/* Badge on image */
+.prestasi-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #2e5339;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.prestasi-body {
+  padding: 1rem 1.2rem 1.3rem;
+}
+
+.prestasi-title {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-size: 1.12rem;
+  color: #d4af37; /* gold */
+  margin-bottom: 0.35rem;
+}
+
+.prestasi-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0;
+}
+
+/* =======================
+   Responsive — Prestasi
+======================= */
+@media (max-width: 992px) {
+  .prestasi-img {
+    max-height: 200px;
+  }
+  .prestasi-section .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .prestasi-img {
+    max-height: 190px;
+  }
+  .prestasi-section .section-title {
+    font-size: 1.8rem;
+  }
+  .prestasi-section .section-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .prestasi-img {
+    max-height: 170px;
+  }
+  .prestasi-badge {
+    font-size: 0.8rem;
+    padding: 5px 9px;
+  }
+}
+
+/* =======================
+   Ekstrakurikuler Section
+======================= */
+.ekskul-section {
+  background-color: #f8fff8;
+  padding: 3rem 1rem;
+  color: #1a1a1a;
+}
+
+.section-title {
+  text-align: center;
+  font-family: "Merriweather", serif;
+  margin-bottom: 2rem;
+  color: #003366;
+  position: relative;
+  font-weight: 700;
+  color: #2e5339; /* deep green */
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #2e7d32, #d4af37); /* green to gold */
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Grid Layout */
+.ekskul-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Cards */
+.ekskul-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.ekskul-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.ekskul-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.ekskul-card h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Color accents for icons */
+.ekskul-card.blue .icon {
+  color: #3498db;
+}
+.ekskul-card.red .icon {
+  color: #e74c3c;
+}
+.ekskul-card.gold .icon {
+  color: #d4af37;
+}
+.ekskul-card.green .icon {
+  color: #27ae60;
+}
+.ekskul-card.teal .icon {
+  color: #16a085;
+}
+.ekskul-card.purple .icon {
+  color: #8e44ad;
+}
+.ekskul-card.pink .icon {
+  color: #e91e63;
+}
+
+/* =======================
+   Guru Section
+======================= */
+.guru-section {
+  background-color: #f8fff8;
+  padding: 4rem 0;
+}
+
+.guru-section .section-title {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  color: #2e5339; /* deep green */
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.guru-section .section-subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* Carousel inner adapts to active item */
+.guru-section .carousel-inner {
+  transition: height 0.5s ease;
+}
+
+/* Each carousel item */
+.guru-section .carousel-item {
+  padding: 1rem 0;
+}
+
+/* Guru card */
+.guru-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.guru-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.guru-img {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.guru-name {
+  font-family: "Merriweather", serif;
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0.25rem;
+  color: #333;
+}
+
+.guru-role {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: #2e7d32;
+}
+
+/* Carousel controls */
+.guru-section .carousel-control-prev,
+.guru-section .carousel-control-next {
+  width: 5%;
+}
+
+.guru-section .carousel-control-prev-icon,
+.guru-section .carousel-control-next-icon {
+  background-size: 100% 100%;
+  filter: invert(36%) sepia(97%) saturate(386%) hue-rotate(78deg)
+    brightness(95%) contrast(92%); /* makes arrows green */
+}
+
+.guru-section .carousel-indicators button {
+  background-color: #daa520; /* gold */
+}
+
+/* =======================
+   Responsive — Guru
+======================= */
+@media (max-width: 992px) {
+  .guru-img {
+    max-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .guru-card {
+    padding: 0.8rem;
+  }
+  .guru-img {
+    max-height: 200px;
+  }
+  .guru-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .guru-img {
+    max-height: 180px;
+  }
+  .guru-role {
+    font-size: 0.85rem;
+  }
+}
+
+/* =======================
+   Extra Small Devices — global tweaks
+======================= */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .news-title {
+    font-size: 0.85rem;
+  }
+  .ekskul-card {
+    padding: 1.2rem 0.8rem;
+  }
+}

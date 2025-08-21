@@ -1,0 +1,53 @@
+/* Fonts */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8fff8; /* soft green */
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Heading */
+h1 {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  color: #2e7d32; /* green */
+}
+
+/* Profil Card */
+.profil-card {
+  background: #fffbea; /* cream/beige */
+  border-left: 8px solid #daa520; /* gold accent */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profil-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Table Styling */
+.profil-card th {
+  width: 40%;
+  font-family: "Merriweather", serif;
+  color: #2e7d32;
+}
+
+.profil-card td {
+  font-family: "Poppins", sans-serif;
+  color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profil-card th {
+    width: 100%;
+    display: block;
+    margin-top: 12px;
+  }
+
+  .profil-card td {
+    display: block;
+    margin-bottom: 12px;
+  }
+}
